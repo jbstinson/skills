@@ -8,104 +8,58 @@ These skills help you think through problems before writing code.
 
 - **to-prd** — Turn the current conversation context into a PRD and submit it as a GitHub issue. No interview — just synthesizes what you've already discussed.
 
-  ```
-  npx skills@latest add mattpocock/skills/to-prd
-  ```
+- **to-issues** — Break any plan, spec, or PRD into independently-grabbable GitHub issues using tracer-bullet vertical slices. Presents a proposed breakdown and iterates with you before creating issues.
 
-- **to-issues** — Break any plan, spec, or PRD into independently-grabbable GitHub issues using vertical slices.
+- **grill-me** — Get relentlessly interviewed about a plan or design until every branch of the decision tree is resolved. Asks one question at a time and explores the codebase when it can answer for itself.
 
-  ```
-  npx skills@latest add mattpocock/skills/to-issues
-  ```
+- **design-an-interface** — Generate multiple radically different interface designs for a module using parallel sub-agents. Based on "Design It Twice" from _A Philosophy of Software Design_.
 
-- **grill-me** — Get relentlessly interviewed about a plan or design until every branch of the decision tree is resolved.
+- **request-refactor-plan** — Create a detailed refactor plan with tiny commits via user interview, then file it as a GitHub issue with a full decision document and testing decisions.
 
-  ```
-  npx skills@latest add mattpocock/skills/grill-me
-  ```
-
-- **design-an-interface** — Generate multiple radically different interface designs for a module using parallel sub-agents.
-
-  ```
-  npx skills@latest add mattpocock/skills/design-an-interface
-  ```
-
-- **request-refactor-plan** — Create a detailed refactor plan with tiny commits via user interview, then file it as a GitHub issue.
-
-  ```
-  npx skills@latest add mattpocock/skills/request-refactor-plan
-  ```
+- **domain-model** — Stress-test a plan against the existing domain model. Challenges terminology, sharpens fuzzy language, updates `CONTEXT.md` and ADRs inline as decisions crystallize.
 
 ## Development
 
 These skills help you write, refactor, and fix code.
 
-- **tdd** — Test-driven development with a red-green-refactor loop. Builds features or fixes bugs one vertical slice at a time.
+- **tdd** — Test-driven development with a red-green-refactor loop. Builds features or fixes bugs one vertical slice at a time. Enforces behavior-focused tests through public interfaces only.
 
-  ```
-  npx skills@latest add mattpocock/skills/tdd
-  ```
+- **triage-issue** — Investigate a bug by exploring the codebase, identify the root cause, and file a GitHub issue with a TDD-based fix plan. Mostly hands-off — minimal questions to the user.
 
-- **triage-issue** — Investigate a bug by exploring the codebase, identify the root cause, and file a GitHub issue with a TDD-based fix plan.
+- **improve-codebase-architecture** — Find deepening opportunities in a codebase, informed by the domain language in `CONTEXT.md` and the decisions in `docs/adr/`. Surfaces shallow modules and proposes refactors that improve testability and AI-navigability.
 
-  ```
-  npx skills@latest add mattpocock/skills/triage-issue
-  ```
+- **migrate-to-shoehorn** — Migrate test files from `as` type assertions to `@total-typescript/shoehorn`. Replaces `as Type` with `fromPartial()` and `as unknown as Type` with `fromAny()`.
 
-- **improve-codebase-architecture** — Find deepening opportunities in a codebase, informed by the domain language in `CONTEXT.md` and the decisions in `docs/adr/`.
+- **scaffold-exercises** — Create exercise directory structures with sections, problems, solutions, and explainers that pass linting.
 
-  ```
-  npx skills@latest add mattpocock/skills/improve-codebase-architecture
-  ```
+## Issue Tracking & QA
 
-- **migrate-to-shoehorn** — Migrate test files from `as` type assertions to @total-typescript/shoehorn.
+- **github-triage** — Triage GitHub issues through a label-based state machine (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). Supports overview, per-issue deep-dive, and quick state overrides.
 
-  ```
-  npx skills@latest add mattpocock/skills/migrate-to-shoehorn
-  ```
-
-- **scaffold-exercises** — Create exercise directory structures with sections, problems, solutions, and explainers.
-
-  ```
-  npx skills@latest add mattpocock/skills/scaffold-exercises
-  ```
+- **qa** — Interactive QA session where you describe bugs conversationally and the agent files properly structured GitHub issues. Explores the codebase in the background to pick up domain language.
 
 ## Tooling & Setup
 
 - **setup-pre-commit** — Set up Husky pre-commit hooks with lint-staged, Prettier, type checking, and tests.
 
-  ```
-  npx skills@latest add mattpocock/skills/setup-pre-commit
-  ```
-
-- **git-guardrails-claude-code** — Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, etc.) before they execute.
-
-  ```
-  npx skills@latest add mattpocock/skills/git-guardrails-claude-code
-  ```
+- **git-guardrails** — Set up Claude Code hooks to block dangerous git commands (`git push`, `git reset --hard`, `git clean`, `git branch -D`, etc.) before they execute. Configurable at project or global scope.
 
 ## Writing & Knowledge
 
 - **write-a-skill** — Create new skills with proper structure, progressive disclosure, and bundled resources.
 
-  ```
-  npx skills@latest add mattpocock/skills/write-a-skill
-  ```
-
 - **edit-article** — Edit and improve articles by restructuring sections, improving clarity, and tightening prose.
 
-  ```
-  npx skills@latest add mattpocock/skills/edit-article
-  ```
-
-- **ubiquitous-language** — Extract a DDD-style ubiquitous language glossary from the current conversation.
-
-  ```
-  npx skills@latest add mattpocock/skills/ubiquitous-language
-  ```
+- **ubiquitous-language** — Extract a DDD-style ubiquitous language glossary from the current conversation. Flags ambiguities, proposes canonical terms, and saves to `UBIQUITOUS_LANGUAGE.md`.
 
 - **obsidian-vault** — Search, create, and manage notes in an Obsidian vault with wikilinks and index notes.
 
-  ```
-  npx skills@latest add mattpocock/skills/obsidian-vault
-  ```
+- **domain-model** — _(Also listed under Planning & Design)_ — grills against the existing glossary and keeps `CONTEXT.md` up-to-date.
+
+## Utilities
+
+- **caveman** — Ultra-compressed communication mode. Cuts token usage ~75% by dropping filler, articles, and pleasantries while keeping full technical accuracy. Stays active until explicitly turned off.
+
+- **zoom-out** — Tell the agent to go up a layer of abstraction and give a map of all relevant modules and callers. Use when unfamiliar with a section of code or need to see how it fits into the bigger picture.
+
+- **truth** — Unfiltered, direct feedback without ego protection. No hedging, no sandwich feedback. Active for the entire conversation once invoked.
